@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   defects,
   capabilityOwners,
-  phases,
   rules,
   preservedCapabilities,
   duplicateCoverage,
@@ -376,80 +375,13 @@ export default function App() {
           {/* Section: Phase Map */}
           <section id="phases">
             <SectionHeader id="phases">7. The Phase Map</SectionHeader>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              174 parts organized into 23 phases, strictly dependency-ordered. Phases 0 and 1 are 18 parts and roughly 25–30% of total effort.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              174 parts organized into 23 phases, strictly dependency-ordered. Phases 0 and 1 are 18 parts and roughly 25–30% of total effort. The full interactive Part Index with all details is in <a href="#part-index" className="text-blue-600 hover:text-blue-800 underline font-medium">Section 2</a>.
             </p>
-
-            {/* Phase visualization */}
-            <div className="mb-8 bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">Phase Distribution</h4>
-              <div className="space-y-2">
-                {phases.map((phase) => {
-                  const maxParts = 17;
-                  const width = (phase.parts / maxParts) * 100;
-                  const colors = [
-                    "bg-blue-500", "bg-blue-400", "bg-indigo-500", "bg-purple-500",
-                    "bg-pink-500", "bg-red-500", "bg-orange-500", "bg-amber-500",
-                    "bg-yellow-500", "bg-lime-500", "bg-green-500", "bg-emerald-500",
-                    "bg-teal-500", "bg-cyan-500", "bg-sky-500", "bg-blue-600",
-                    "bg-indigo-600", "bg-violet-500", "bg-fuchsia-500", "bg-rose-500",
-                    "bg-red-600", "bg-orange-600", "bg-gray-600",
-                  ];
-                  return (
-                    <div key={phase.phase} className="flex items-center gap-3">
-                      <span className="text-xs font-mono text-gray-500 w-8 text-right">{phase.phase}</span>
-                      <div className="flex-1">
-                        <div className="h-6 bg-gray-100 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full ${colors[parseInt(phase.phase)] || "bg-gray-400"} rounded-full flex items-center px-2`}
-                            style={{ width: `${Math.max(width, 12)}%` }}
-                          >
-                            <span className="text-white text-xs font-medium whitespace-nowrap">
-                              {phase.name} ({phase.parts})
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
-                <thead className="bg-gray-50 border-b border-gray-200">
-                  <tr>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Phase</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Name</th>
-                    <th className="text-center px-4 py-3 font-semibold text-gray-700">Parts</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Starts When</th>
-                    <th className="text-left px-4 py-3 font-semibold text-gray-700">Parallel</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {phases.map((phase) => (
-                    <tr key={phase.phase} className="hover:bg-gray-50">
-                      <td className="px-4 py-3">
-                        <Badge variant={parseInt(phase.phase) <= 2 ? "blue" : parseInt(phase.phase) <= 10 ? "green" : "gray"}>
-                          {phase.phase}
-                        </Badge>
-                      </td>
-                      <td className="px-4 py-3 font-medium text-gray-900">{phase.name}</td>
-                      <td className="px-4 py-3 text-center font-mono font-bold text-gray-700">{phase.parts}</td>
-                      <td className="px-4 py-3 text-gray-600">{phase.startsWhen}</td>
-                      <td className="px-4 py-3 text-gray-500 text-xs">{phase.parallel}</td>
-                    </tr>
-                  ))}
-                </tbody>
-                <tfoot className="bg-gray-50 border-t-2 border-gray-300">
-                  <tr>
-                    <td className="px-4 py-3 font-bold text-gray-900" colSpan={2}>Total</td>
-                    <td className="px-4 py-3 text-center font-bold text-gray-900 font-mono text-lg">174</td>
-                    <td className="px-4 py-3" colSpan={2}></td>
-                  </tr>
-                </tfoot>
-              </table>
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
+              <p className="text-sm text-blue-800">
+                <strong>Do not compress Phases 0 and 1.</strong> Every module built before the engines exist will be rewritten. The previous 46-part series implied roughly half the effort of this 174-part plan — the gap between the two numbers is exactly the detail that was missing when the build stalled.
+              </p>
             </div>
           </section>
 

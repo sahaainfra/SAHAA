@@ -9,7 +9,7 @@ import {
   type PhaseData,
 } from "../data/parts";
 
-function PartRow({ part, phaseNum }: { part: Part; phaseNum: string }) {
+function PartRow({ part }: { part: Part }) {
   return (
     <tr className="hover:bg-gray-50 border-b border-gray-100 last:border-0">
       <td className="px-4 py-3">
@@ -132,7 +132,7 @@ function PhaseCard({
               </thead>
               <tbody>
                 {filteredParts.map((part) => (
-                  <PartRow key={part.id} part={part} phaseNum={phase.phase} />
+                  <PartRow key={part.id} part={part} />
                 ))}
               </tbody>
             </table>
@@ -177,7 +177,6 @@ export default function PartIndex() {
   const totalParts = phases.reduce((sum, p) => sum + p.parts.length, 0);
   const totalDays = phases.reduce((sum, p) => sum + p.parts.reduce((s, part) => s + part.days, 0), 0);
   const starParts = phases.reduce((sum, p) => sum + p.parts.filter((part) => part.star).length, 0);
-  const parallelParts = phases.reduce((sum, p) => sum + p.parts.filter((part) => part.parallel).length, 0);
 
   return (
     <div>

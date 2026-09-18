@@ -9,6 +9,7 @@ import {
   dualSpecifiedCapabilities,
   verificationChecks,
 } from "./data/content";
+import PartIndex from "./components/PartIndex";
 
 function SectionHeader({ id, children }: { id: string; children: React.ReactNode }) {
   return (
@@ -54,6 +55,7 @@ export default function App() {
 
   const navItems = [
     { id: "overview", label: "Overview", icon: "📋" },
+    { id: "part-index", label: "Part Index (174)", icon: "📑" },
     { id: "defects", label: "Structural Defects", icon: "⚠️" },
     { id: "preserved", label: "What's Preserved", icon: "✅" },
     { id: "capability", label: "Capability Register", icon: "📦" },
@@ -193,9 +195,21 @@ export default function App() {
             </div>
           </section>
 
+          {/* Section: Part Index */}
+          <section id="part-index">
+            <SectionHeader id="part-index">2. Part Index — All 174 Parts</SectionHeader>
+            <p className="text-gray-700 leading-relaxed mb-2">
+              Dependency-ordered. Part N never depends on Part N+1. Every part is a day or two of work with a verifiable checklist.
+            </p>
+            <p className="text-sm text-gray-500 mb-6">
+              <strong>Legend:</strong> ‖ = may run in parallel with the previous part (different developer) · ★ = highest defect risk, assign deliberately · Days = one developer, including testing.
+            </p>
+            <PartIndex />
+          </section>
+
           {/* Section: Defects */}
           <section id="defects">
-            <SectionHeader id="defects">2. The Nine Structural Defects</SectionHeader>
+            <SectionHeader id="defects">3. The Nine Structural Defects</SectionHeader>
             <p className="text-gray-600 mb-8">
               Each defect is identified, explained, and resolved. No defect is cosmetic — all are structural.
             </p>
@@ -274,7 +288,7 @@ export default function App() {
 
           {/* Section: Preserved */}
           <section id="preserved">
-            <SectionHeader id="preserved">3. What Is Preserved</SectionHeader>
+            <SectionHeader id="preserved">4. What Is Preserved</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               <strong>Everything functional.</strong> No capability has been dropped. The following are all retained from the previous series:
             </p>
@@ -299,7 +313,7 @@ export default function App() {
 
           {/* Section: Capability Register */}
           <section id="capability">
-            <SectionHeader id="capability">4. Capability Ownership Register</SectionHeader>
+            <SectionHeader id="capability">5. Capability Ownership Register</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-4">
               One owner per capability. Every other part calls the owner's published interface.
             </p>
@@ -335,7 +349,7 @@ export default function App() {
 
           {/* Section: Verification */}
           <section id="verification">
-            <SectionHeader id="verification">5. How the Sequence Was Verified</SectionHeader>
+            <SectionHeader id="verification">6. How the Sequence Was Verified</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Before writing any part, the full dependency graph was built and checked through six mechanical verifications:
             </p>
@@ -361,7 +375,7 @@ export default function App() {
 
           {/* Section: Phase Map */}
           <section id="phases">
-            <SectionHeader id="phases">6. The Phase Map</SectionHeader>
+            <SectionHeader id="phases">7. The Phase Map</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               174 parts organized into 23 phases, strictly dependency-ordered. Phases 0 and 1 are 18 parts and roughly 25–30% of total effort.
             </p>
@@ -441,7 +455,7 @@ export default function App() {
 
           {/* Section: Delivery */}
           <section id="delivery">
-            <SectionHeader id="delivery">7. What Is Delivered Now</SectionHeader>
+            <SectionHeader id="delivery">8. What Is Delivered Now</SectionHeader>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
@@ -526,7 +540,7 @@ export default function App() {
 
           {/* Section: Rules */}
           <section id="rules">
-            <SectionHeader id="rules">8. The Four Non-Negotiable Rules</SectionHeader>
+            <SectionHeader id="rules">9. The Four Non-Negotiable Rules</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Unchanged, and they govern every part.
             </p>
@@ -557,7 +571,7 @@ export default function App() {
 
           {/* Section: Feeding */}
           <section id="feeding">
-            <SectionHeader id="feeding">9. How to Feed a Part to the Coding AI</SectionHeader>
+            <SectionHeader id="feeding">10. How to Feed a Part to the Coding AI</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Paste this before the part's content:
             </p>

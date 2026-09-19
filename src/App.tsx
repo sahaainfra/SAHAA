@@ -23,6 +23,7 @@ import Part11A from "./components/Part11A";
 import Part11B from "./components/Part11B";
 import Part11C from "./components/Part11C";
 import Part11D from "./components/Part11D";
+import Part11E from "./components/Part11E";
 
 function SectionHeader({ id, children }: { id: string; children: React.ReactNode }) {
   return (
@@ -83,6 +84,7 @@ export default function App() {
     { id: "part-11b", label: "Part 1.1B", icon: "🔢" },
     { id: "part-11c", label: "Part 1.1C", icon: "🔒" },
     { id: "part-11d", label: "Part 1.1D", icon: "⚡" },
+    { id: "part-11e", label: "Part 1.1E", icon: "📝" },
     { id: "defects", label: "Structural Defects", icon: "⚠️" },
     { id: "preserved", label: "What's Preserved", icon: "✅" },
     { id: "capability", label: "Capability Register", icon: "📦" },
@@ -361,9 +363,18 @@ export default function App() {
             <Part11D />
           </section>
 
+          {/* Section: Part 1.1E */}
+          <section id="part-11e">
+            <SectionHeader id="part-11e">17. Part 1.1E — Create, Update, Read, List, Drafts & The Controller</SectionHeader>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Phase 1 — Platform Engines · Part 5 of 10 · Estimated 1.5 days · ★ Completes the document framework. Complete the document framework: create and update that run determinations, allocate when the definition says and refuse client values for fields the system owns; read and list scoped in SQL and masked on the way out; drafts that activate atomically; and a controller that gives each module its REST surface with no code.
+            </p>
+            <Part11E />
+          </section>
+
           {/* Section: Defects */}
           <section id="defects">
-            <SectionHeader id="defects">17. The Nine Structural Defects (from Master Plan)</SectionHeader>
+            <SectionHeader id="defects">18. The Nine Structural Defects (from Master Plan)</SectionHeader>
             <p className="text-gray-600 mb-8">
               Each defect is identified, explained, and resolved. No defect is cosmetic — all are structural.
             </p>
@@ -442,7 +453,7 @@ export default function App() {
 
           {/* Section: Preserved */}
           <section id="preserved">
-            <SectionHeader id="preserved">18. What Is Preserved</SectionHeader>
+            <SectionHeader id="preserved">19. What Is Preserved</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               <strong>Everything functional.</strong> No capability has been dropped. The following are all retained from the previous series:
             </p>
@@ -467,7 +478,7 @@ export default function App() {
 
           {/* Section: Capability Register */}
           <section id="capability">
-            <SectionHeader id="capability">19. Capability Ownership Register</SectionHeader>
+            <SectionHeader id="capability">20. Capability Ownership Register</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-4">
               One owner per capability. Every other part calls the owner's published interface.
             </p>
@@ -503,7 +514,7 @@ export default function App() {
 
           {/* Section: Verification */}
           <section id="verification">
-            <SectionHeader id="verification">20. How the Sequence Was Verified</SectionHeader>
+            <SectionHeader id="verification">21. How the Sequence Was Verified</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Before writing any part, the full dependency graph was built and checked through six mechanical verifications:
             </p>
@@ -529,7 +540,7 @@ export default function App() {
 
           {/* Section: Phase Map */}
           <section id="phases">
-            <SectionHeader id="phases">21. The Phase Map</SectionHeader>
+            <SectionHeader id="phases">22. The Phase Map</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-4">
               174 parts organized into 23 phases, strictly dependency-ordered. Phases 0 and 1 are 18 parts and roughly 25–30% of total effort. The full interactive Part Index with all details is in <a href="#part-index" className="text-blue-600 hover:text-blue-800 underline font-medium">Section 2</a>.
             </p>
@@ -542,7 +553,7 @@ export default function App() {
 
           {/* Section: Delivery */}
           <section id="delivery">
-            <SectionHeader id="delivery">22. What Is Delivered Now</SectionHeader>
+            <SectionHeader id="delivery">23. What Is Delivered Now</SectionHeader>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
@@ -627,7 +638,7 @@ export default function App() {
 
           {/* Section: Rules */}
           <section id="rules">
-            <SectionHeader id="rules">23. The Four Non-Negotiable Rules</SectionHeader>
+            <SectionHeader id="rules">24. The Four Non-Negotiable Rules</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Unchanged, and they govern every part.
             </p>
@@ -658,7 +669,7 @@ export default function App() {
 
           {/* Section: Feeding */}
           <section id="feeding">
-            <SectionHeader id="feeding">24. How to Feed a Part to the Coding AI</SectionHeader>
+            <SectionHeader id="feeding">25. How to Feed a Part to the Coding AI</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Paste this before the part's content:
             </p>

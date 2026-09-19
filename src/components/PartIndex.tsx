@@ -372,7 +372,7 @@ export default function PartIndex() {
             <tfoot className="bg-gray-100 border-t-2 border-gray-300">
               <tr>
                 <td className="px-4 py-3 font-bold text-gray-900">Total</td>
-                <td className="px-4 py-3 text-center font-bold font-mono text-lg">174</td>
+                <td className="px-4 py-3 text-center font-bold font-mono text-lg">175</td>
                 <td className="px-4 py-3 text-center font-bold font-mono">~296</td>
                 <td className="px-4 py-3 text-center font-bold font-mono">~265</td>
               </tr>

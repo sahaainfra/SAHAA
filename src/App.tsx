@@ -64,7 +64,7 @@ export default function App() {
 
   const navItems = [
     { id: "overview", label: "Overview", icon: "📋" },
-    { id: "part-index", label: "Part Index (174)", icon: "📑" },
+    { id: "part-index", label: "Part Index (175)", icon: "📑" },
     { id: "conventions", label: "Build Conventions", icon: "📐" },
     { id: "part-01", label: "Part 0.1", icon: "🏗️" },
     { id: "part-02", label: "Part 0.2", icon: "🗄️" },
@@ -149,7 +149,7 @@ export default function App() {
 
         <div className="p-4 mx-4 mb-4 mt-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
           <p className="text-xs font-semibold text-blue-900 mb-1">Total Parts</p>
-          <p className="text-3xl font-bold text-blue-700">174</p>
+          <p className="text-3xl font-bold text-blue-700">175</p>
           <p className="text-xs text-blue-600 mt-1">across 23 phases</p>
         </div>
 
@@ -171,16 +171,17 @@ export default function App() {
             <div className="flex items-center gap-2 mb-4">
               <Badge variant="amber">READ FIRST</Badge>
               <Badge variant="purple">MASTER PLAN</Badge>
+              <Badge variant="green">PHASE 0 COMPLETE ✓</Badge>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
               Complete Rebuild of the Construction ERP Prompt Series
             </h1>
             <p className="text-blue-100 text-lg mb-6">
-              From Part 0 — a dependency-ordered, mechanically verifiable, single-owner specification for 174 build parts.
+              From Part 0 — a dependency-ordered, mechanically verifiable, single-owner specification for 175 build parts.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
               <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                <p className="text-2xl font-bold">174</p>
+                <p className="text-2xl font-bold">175</p>
                 <p className="text-xs text-blue-200">Total Parts</p>
               </div>
               <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">

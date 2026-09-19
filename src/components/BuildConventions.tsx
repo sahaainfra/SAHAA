@@ -77,7 +77,7 @@ export default function BuildConventions() {
       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white mb-8">
         <h2 className="text-2xl font-bold mb-3">Build Conventions</h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          Applies to every one of the 174 parts. Read once; referenced by all. This document holds everything shared, so individual parts do not repeat it. When a part says "per conventions", it means this file.
+          Applies to every one of the 175 parts. Read once; referenced by all. This document holds everything shared, so individual parts do not repeat it. When a part says "per conventions", it means this file.
         </p>
         <div className="mt-4 flex items-center gap-2">
           <span className="text-xs bg-white/10 px-2 py-1 rounded">TypeScript</span>

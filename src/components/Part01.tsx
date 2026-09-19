@@ -192,7 +192,7 @@ export default function Part01() {
       </div>
 
       <Callout type="warning">
-        <strong>If the dx_ prefix collides,</strong> choose another two-or-three-character prefix now and use it consistently for all 174 parts. Record the choice in <code className="bg-amber-100 px-1 rounded">02_BUILD_CONVENTIONS.md</code>. Everything in this series says dx_; a global find-and-replace is a five-minute job now and a nightmare at Part 90.
+        <strong>If the dx_ prefix collides,</strong> choose another two-or-three-character prefix now and use it consistently for all 175 parts. Record the choice in <code className="bg-amber-100 px-1 rounded">02_BUILD_CONVENTIONS.md</code>. Everything in this series says dx_; a global find-and-replace is a five-minute job now and a nightmare at Part 90.
       </Callout>
 
       {/* Step 2: Decide */}

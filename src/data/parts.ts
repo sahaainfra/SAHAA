@@ -26,8 +26,9 @@ export const phases: PhaseData[] = [
       { id: "0.2", title: "Database baseline: inspect existing schema, build adapter layer", depends: "0.1", days: 3, star: true },
       { id: "0.3", title: "Platform core: UnitOfWork, Money, API envelope, error catalogue", depends: "0.2", days: 2 },
       { id: "0.4", title: "Authentication, session, MFA, password policy", depends: "0.3", days: 1.5 },
-      { id: "0.5", title: "Permission engine: model, resolver, four enforcement points", depends: "0.4", days: 3, star: true },
-      { id: "0.6", title: "Audit trail with hash chain; transactional outbox and relay", depends: "0.5", days: 1.5 },
+      { id: "0.5A", title: "Permission model, resolver, cache", depends: "0.4", days: 2, star: true },
+      { id: "0.5B", title: "Permission enforcement (four points) and admin console", depends: "0.5A", days: 2, star: true },
+      { id: "0.6", title: "Audit trail with hash chain; transactional outbox and relay", depends: "0.5B", days: 1.5 },
       { id: "0.7", title: "Design tokens, theme engine, application shell, navigation", depends: "0.3", days: 2 },
       { id: "0.8", title: "Responsive framework: breakpoints, adaptive patterns, PWA base", depends: "0.7", days: 2 },
     ],
@@ -342,7 +343,7 @@ export const phases: PhaseData[] = [
 ];
 
 export const summaryData = [
-  { phase: "0 Foundation", parts: 8, days1dev: 12, daysParallel: 12 },
+  { phase: "0 Foundation", parts: 9, days1dev: 14, daysParallel: 14 },
   { phase: "1 Platform engines", parts: 10, days1dev: 20, daysParallel: 14 },
   { phase: "2 Master data", parts: 9, days1dev: 14, daysParallel: 10 },
   { phase: "3 Workforce & payroll", parts: 17, days1dev: 26, daysParallel: 16 },

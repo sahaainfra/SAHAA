@@ -21,6 +21,7 @@ import Part07 from "./components/Part07";
 import Part08 from "./components/Part08";
 import Part11A from "./components/Part11A";
 import Part11B from "./components/Part11B";
+import Part11C from "./components/Part11C";
 
 function SectionHeader({ id, children }: { id: string; children: React.ReactNode }) {
   return (
@@ -79,6 +80,7 @@ export default function App() {
     { id: "part-08", label: "Part 0.8", icon: "📱" },
     { id: "part-11a", label: "Part 1.1A", icon: "📄" },
     { id: "part-11b", label: "Part 1.1B", icon: "🔢" },
+    { id: "part-11c", label: "Part 1.1C", icon: "🔒" },
     { id: "defects", label: "Structural Defects", icon: "⚠️" },
     { id: "preserved", label: "What's Preserved", icon: "✅" },
     { id: "capability", label: "Capability Register", icon: "📦" },
@@ -339,9 +341,18 @@ export default function App() {
             <Part11B />
           </section>
 
+          {/* Section: Part 1.1C */}
+          <section id="part-11c">
+            <SectionHeader id="part-11c">15. Part 1.1C — Document Locking & Immutability</SectionHeader>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Phase 1 — Platform Engines · Part 3 of 10 · Estimated 0.5 day · ★ Makes posted, certified and filed documents genuinely unchangeable. Deliver a lock mechanism that refuses every write to a locked document, records the document's content hash at the moment of locking so that later tampering is detectable, chains locks per project so that deleting the evidence breaks the chain, honours the existing system's own freeze flags, and provides no route back.
+            </p>
+            <Part11C />
+          </section>
+
           {/* Section: Defects */}
           <section id="defects">
-            <SectionHeader id="defects">15. The Nine Structural Defects (from Master Plan)</SectionHeader>
+            <SectionHeader id="defects">16. The Nine Structural Defects (from Master Plan)</SectionHeader>
             <p className="text-gray-600 mb-8">
               Each defect is identified, explained, and resolved. No defect is cosmetic — all are structural.
             </p>
@@ -420,7 +431,7 @@ export default function App() {
 
           {/* Section: Preserved */}
           <section id="preserved">
-            <SectionHeader id="preserved">16. What Is Preserved</SectionHeader>
+            <SectionHeader id="preserved">17. What Is Preserved</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               <strong>Everything functional.</strong> No capability has been dropped. The following are all retained from the previous series:
             </p>
@@ -445,7 +456,7 @@ export default function App() {
 
           {/* Section: Capability Register */}
           <section id="capability">
-            <SectionHeader id="capability">17. Capability Ownership Register</SectionHeader>
+            <SectionHeader id="capability">18. Capability Ownership Register</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-4">
               One owner per capability. Every other part calls the owner's published interface.
             </p>
@@ -481,7 +492,7 @@ export default function App() {
 
           {/* Section: Verification */}
           <section id="verification">
-            <SectionHeader id="verification">18. How the Sequence Was Verified</SectionHeader>
+            <SectionHeader id="verification">19. How the Sequence Was Verified</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Before writing any part, the full dependency graph was built and checked through six mechanical verifications:
             </p>
@@ -507,7 +518,7 @@ export default function App() {
 
           {/* Section: Phase Map */}
           <section id="phases">
-            <SectionHeader id="phases">19. The Phase Map</SectionHeader>
+            <SectionHeader id="phases">20. The Phase Map</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-4">
               174 parts organized into 23 phases, strictly dependency-ordered. Phases 0 and 1 are 18 parts and roughly 25–30% of total effort. The full interactive Part Index with all details is in <a href="#part-index" className="text-blue-600 hover:text-blue-800 underline font-medium">Section 2</a>.
             </p>
@@ -520,7 +531,7 @@ export default function App() {
 
           {/* Section: Delivery */}
           <section id="delivery">
-            <SectionHeader id="delivery">20. What Is Delivered Now</SectionHeader>
+            <SectionHeader id="delivery">21. What Is Delivered Now</SectionHeader>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
@@ -605,7 +616,7 @@ export default function App() {
 
           {/* Section: Rules */}
           <section id="rules">
-            <SectionHeader id="rules">21. The Four Non-Negotiable Rules</SectionHeader>
+            <SectionHeader id="rules">22. The Four Non-Negotiable Rules</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Unchanged, and they govern every part.
             </p>
@@ -636,7 +647,7 @@ export default function App() {
 
           {/* Section: Feeding */}
           <section id="feeding">
-            <SectionHeader id="feeding">22. How to Feed a Part to the Coding AI</SectionHeader>
+            <SectionHeader id="feeding">23. How to Feed a Part to the Coding AI</SectionHeader>
             <p className="text-gray-700 leading-relaxed mb-6">
               Paste this before the part's content:
             </p>

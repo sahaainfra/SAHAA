@@ -5,6 +5,7 @@ export interface Part {
   days: number;
   parallel?: boolean;
   star?: boolean;
+  status?: 'complete' | 'rebuild';
 }
 
 export interface PhaseData {
@@ -22,15 +23,15 @@ export const phases: PhaseData[] = [
     parallelWith: undefined,
     gate: "A user can log in, see a permission-filtered menu, and every action is audited.",
     parts: [
-      { id: "0.1", title: "Environment, repository, stack decisions, folder structure", depends: "—", days: 1 },
-      { id: "0.2", title: "Database baseline: inspect existing schema, build adapter layer", depends: "0.1", days: 3, star: true },
-      { id: "0.3", title: "Platform core: UnitOfWork, Money, API envelope, error catalogue", depends: "0.2", days: 2 },
-      { id: "0.4", title: "Authentication, session, MFA, password policy", depends: "0.3", days: 1.5 },
-      { id: "0.5A", title: "Permission model, resolver, cache", depends: "0.4", days: 2, star: true },
-      { id: "0.5B", title: "Permission enforcement (four points) and admin console", depends: "0.5A", days: 2, star: true },
-      { id: "0.6", title: "Audit trail with hash chain; transactional outbox and relay", depends: "0.5B", days: 1.5 },
-      { id: "0.7", title: "Design tokens, theme engine, application shell, navigation", depends: "0.3", days: 2 },
-      { id: "0.8", title: "Responsive framework: breakpoints, adaptive patterns, PWA base", depends: "0.7", days: 2 },
+      { id: "0.1", title: "Environment, repository, stack decisions, folder structure", depends: "—", days: 1, status: 'complete' },
+      { id: "0.2", title: "Database baseline: inspect existing schema, build adapter layer", depends: "0.1", days: 3, star: true, status: 'complete' },
+      { id: "0.3", title: "Platform core: UnitOfWork, Money, API envelope, error catalogue", depends: "0.2", days: 2, status: 'complete' },
+      { id: "0.4", title: "Authentication, session, MFA, password policy", depends: "0.3", days: 1.5, status: 'complete' },
+      { id: "0.5A", title: "Permission model, resolver, cache", depends: "0.4", days: 2, star: true, status: 'complete' },
+      { id: "0.5B", title: "Permission enforcement (four points) and admin console", depends: "0.5A", days: 2, star: true, status: 'complete' },
+      { id: "0.6", title: "Audit trail with hash chain; transactional outbox and relay", depends: "0.5B", days: 1.5, status: 'complete' },
+      { id: "0.7", title: "Design tokens, theme engine, application shell, navigation", depends: "0.3", days: 2, status: 'complete' },
+      { id: "0.8", title: "Responsive framework: breakpoints, adaptive patterns, PWA base", depends: "0.7", days: 2, status: 'complete' },
     ],
   },
   {
@@ -38,8 +39,15 @@ export const phases: PhaseData[] = [
     name: "Platform Engines",
     gate: "A throwaway test document can be created, submitted, approved, posted, printed and seen updating live on two browsers with different permissions.",
     parts: [
-      { id: "1.1", title: "Document framework: definition, states, draft, numbering", depends: "0.6", days: 3, star: true },
-      { id: "1.2", title: "Workflow engine: approver rules, routing, SLA, escalation, delegation", depends: "1.1", days: 3 },
+      { id: "1.1A", title: "Document model: definitions, actions, derived states, rules, determinations, TEST_DOC", depends: "0.6", days: 2, star: true, status: 'complete' },
+      { id: "1.1B", title: "Document numbering: gapless/fast series, rollover, voiding, gap report", depends: "1.1A", days: 1, status: 'complete' },
+      { id: "1.1C", title: "Document locking: content freeze, per-project hash chain, nightly verification", depends: "1.1A", days: 0.5, status: 'complete' },
+      { id: "1.1D", title: "Document storage, versions and action execution (execute / executeIn)", depends: "1.1B, 1.1C", days: 2, star: true, status: 'complete' },
+      { id: "1.1E", title: "Create, update, read, list, drafts, the controller", depends: "1.1D", days: 1.5, status: 'complete' },
+      { id: "1.2A", title: "Workflow definition, conditions, versioning, console", depends: "1.1D", days: 1.5, status: "rebuild" },
+      { id: "1.2B", title: "Approver determination, authority limits, planning, preview", depends: "1.2A", days: 1.5, star: true, status: "rebuild" },
+      { id: "1.2C", title: "Workflow execution: instances, tamper check, quorum, recall", depends: "1.2B", days: 2, star: true, status: "rebuild" },
+      { id: "1.2D", title: "Delegation, SLA, escalation, approvals inbox, bulk approval", depends: "1.2C", days: 1.5, status: "rebuild" },
       { id: "1.3", title: "Calculation engines: formulas, rate resolver, tax, deductions, rounding", depends: "0.3", days: 3, star: true },
       { id: "1.4", title: "Posting engines: stock ledger, general ledger, period lock", depends: "1.3", days: 3, star: true },
       { id: "1.5", title: "Real-time: WebSocket gateway, per-subscriber fan-out, KPI service", depends: "0.6", days: 2.5, parallel: true },

@@ -27,6 +27,16 @@ function PartRow({ part }: { part: Part }) {
               ‖
             </span>
           )}
+          {part.status === 'complete' && (
+            <span className="text-xs text-green-600 font-bold" title="Part complete">
+              ✅
+            </span>
+          )}
+          {part.status === 'rebuild' && (
+            <span className="text-xs text-orange-600 font-bold" title="Part needs rebuild">
+              ⚠️
+            </span>
+          )}
         </div>
       </td>
       <td className="px-4 py-3 text-sm text-gray-800 max-w-md">{part.title}</td>
@@ -68,6 +78,9 @@ function PhaseCard({
 
   const totalDays = phase.parts.reduce((sum, p) => sum + p.days, 0);
   const starCount = phase.parts.filter((p) => p.star).length;
+  const completeCount = phase.parts.filter((p) => p.status === 'complete').length;
+  const rebuildCount = phase.parts.filter((p) => p.status === 'rebuild').length;
+  const allComplete = completeCount === phase.parts.length && phase.parts.length > 0;
 
   return (
     <div className={`rounded-xl border shadow-sm overflow-hidden transition-all duration-200 ${phaseColorsLight[phase.phase] || "bg-white border-gray-200"}`}>
@@ -80,11 +93,29 @@ function PhaseCard({
             {phase.phase}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">{phase.name}</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="font-semibold text-gray-900">{phase.name}</h3>
+              {allComplete && (
+                <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">
+                  ✅ COMPLETE
+                </span>
+              )}
+              {rebuildCount > 0 && !allComplete && (
+                <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full font-medium">
+                  ⚠️ {rebuildCount} need rebuild
+                </span>
+              )}
+            </div>
             <div className="flex items-center gap-3 mt-0.5">
               <span className="text-xs text-gray-500">{phase.parts.length} parts</span>
               <span className="text-xs text-gray-500">•</span>
               <span className="text-xs text-gray-500">{totalDays} days</span>
+              {completeCount > 0 && !allComplete && (
+                <>
+                  <span className="text-xs text-gray-500">•</span>
+                  <span className="text-xs text-green-600 font-medium">✅ {completeCount} complete</span>
+                </>
+              )}
               {starCount > 0 && (
                 <>
                   <span className="text-xs text-gray-500">•</span>
@@ -117,6 +148,17 @@ function PhaseCard({
               <p className="text-xs text-green-800">
                 <span className="font-semibold">Gate: </span>
                 {phase.gate}
+              </p>
+            </div>
+          )}
+          {phase.phase === "1" && rebuildCount > 0 && (
+            <div className="px-5 py-3 bg-orange-50 border-b border-orange-200">
+              <p className="text-xs text-orange-800 mb-2">
+                <span className="font-semibold">⚠️ Rebuild Notice: </span>
+                Parts 1.2A–D are marked for rebuild. They create <code className="bg-orange-100 px-1 rounded">dx_approval_authority</code> and <code className="bg-orange-100 px-1 rounded">dx_delegation</code>, which 0.5A already creates with different columns — the migrations would fail. All four also use names the rebuilt 1.1 no longer has (<code className="bg-orange-100 px-1 rounded">sodExcludes</code>, <code className="bg-orange-100 px-1 rounded">executeAction</code>, <code className="bg-orange-100 px-1 rounded">STALE_DOCUMENT</code>).
+              </p>
+              <p className="text-xs text-orange-800 font-semibold">
+                Do not build 1.2 from the current files.
               </p>
             </div>
           )}
